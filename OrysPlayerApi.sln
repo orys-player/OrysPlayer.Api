@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrysPlayerApi", "OrysPlayerApi\OrysPlayerApi.csproj", "{C956D59A-B815-4C60-B7C2-81E5B92CB878}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrysPlayer.Api", "OrysPlayer.Api\OrysPlayer.Api.csproj", "{C956D59A-B815-4C60-B7C2-81E5B92CB878}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
