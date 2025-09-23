@@ -18,4 +18,16 @@ public class UserController : ControllerBase
     {
         return Ok(Users);
     }
+
+    [HttpGet]
+    [Route("{id:int}")]
+    public ActionResult<User> GetUser(int id)
+    {
+        var user = Users.FirstOrDefault(u => u.Id == id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        return Ok(user);
+    }
 }
