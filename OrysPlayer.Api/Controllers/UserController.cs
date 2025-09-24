@@ -30,4 +30,13 @@ public class UserController : ControllerBase
         }
         return Ok(user);
     }
+
+    [HttpPost]
+    public ActionResult<User> CreateUser(User newUser)
+    {
+        if (newUser is null) return BadRequest();
+        newUser.Id = Users.Max(u => u.Id) + 1;
+        Users.Add(newUser);
+        return CreatedAtAction(nameof(GetUser), new { id = newUser.Id }, newUser);
+    }
 }
