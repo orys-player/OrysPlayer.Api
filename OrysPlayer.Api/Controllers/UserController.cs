@@ -39,4 +39,30 @@ public class UserController : ControllerBase
         Users.Add(newUser);
         return CreatedAtAction(nameof(GetUser), new { id = newUser.Id }, newUser);
     }
+
+    [HttpPut]
+    [Route("{id:int}")]
+    public IActionResult UpdateUser(int id, User updatedUser)
+    {
+        var game = Users.FirstOrDefault(u => u.Id == id);
+        
+        if (game is null) return NotFound();
+        
+        game.Firstname = updatedUser.Firstname;
+        game.Lastname = updatedUser.Lastname;
+        game.Email = updatedUser.Email;
+        game.Password = updatedUser.Password;
+        
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [Route("{id:int}")]
+    public IActionResult DeleteUser(int id)
+    {
+        var user = Users.FirstOrDefault(u => u.Id == id);
+        if (user is null) return NotFound();
+        Users.Remove(user);
+        return NoContent();
+    }
 }
