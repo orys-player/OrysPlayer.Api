@@ -9,7 +9,7 @@
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5000
-      - ConnectionStrings__DefaultConnection=Host=orysplayerdb;Database=orysdb;Username=orysadmin;Password=oryspassword
+      - ConnectionStrings__DefaultConnection=Host=orysplayerdb;Database=orysplayerdb;Username=orysadmin;Password=oryspassword
     depends_on:
       - orysplayerdb
 
@@ -28,4 +28,3 @@
 
 volumes:
   postgres_data: {}
-

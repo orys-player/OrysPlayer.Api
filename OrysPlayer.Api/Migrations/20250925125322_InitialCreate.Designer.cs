@@ -11,7 +11,7 @@ using OrysPlayerApi.Data;
 namespace OrysPlayerApi.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20250925102454_InitialCreate")]
+    [Migration("20250925125322_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
