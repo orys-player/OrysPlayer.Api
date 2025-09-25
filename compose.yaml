@@ -1,0 +1,31 @@
+﻿services:
+  orysplayer.api:
+    image: orysplayer.api
+    build:
+      context: .
+      dockerfile: OrysPlayer.Api/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__DefaultConnection=Host=orysplayerdb;Database=orysdb;Username=orysadmin;Password=oryspassword
+    depends_on:
+      - orysplayerdb
+
+  orysplayerdb:
+    image: postgres:latest
+    container_name: orysplayerdb
+    restart: always
+    environment:
+      POSTGRES_USER: orysadmin
+      POSTGRES_PASSWORD: oryspassword
+      POSTGRES_DB: orysplayerdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}
+
